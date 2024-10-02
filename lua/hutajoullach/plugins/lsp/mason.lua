@@ -13,6 +13,9 @@ return {
 
     local mason_tool_installer = require("mason-tool-installer")
 
+    -- import lspconfig
+    local lspconfig = require("lspconfig")
+
     -- enable mason and configure icons
     mason.setup({
       ui = {
@@ -27,7 +30,7 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "html",
         "cssls",
         "tailwindcss",
@@ -50,5 +53,7 @@ return {
         "eslint_d", -- js linter
       },
     })
+
+    lspconfig.ts_ls.setup({})
   end,
 }
