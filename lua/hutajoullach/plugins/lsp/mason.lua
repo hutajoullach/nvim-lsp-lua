@@ -39,7 +39,7 @@ return {
         "graphql",
         "emmet_ls",
         "prismals",
-        "pyright",
+        "pylsp",
       },
     })
 
@@ -52,8 +52,11 @@ return {
         "pylint", -- python linter
         "eslint_d", -- js linter
         "mypy", -- Static type checker for Python
+        "python-lsp-server", -- Python LSP server
       },
     })
+
+    lspconfig.pylsp.setup({})
 
     lspconfig.ts_ls.setup({})
   end,

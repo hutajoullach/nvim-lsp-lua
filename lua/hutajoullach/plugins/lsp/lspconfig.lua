@@ -131,16 +131,33 @@ return {
           },
         })
       end,
-      ["pyright"] = function()
-        -- configure python server
-        lspconfig["pyright"].setup({
+      ["pylsp"] = function()
+        -- configure python-lsp-server
+        lspconfig["pylsp"].setup({
           capabilities = capabilities,
           settings = {
-            python = {
-              analysis = {
-                autoSearchPaths = true,
-                diagnosticMode = "workspace",
-                useLibraryCodeForTypes = true,
+            pylsp = {
+              plugins = {
+                pycodestyle = {
+                  ignore = { "W391" },
+                  maxLineLength = 100,
+                },
+                jedi_completion = {
+                  fuzzy = true,
+                },
+                pyflakes = {
+                  enabled = true,
+                },
+                pylint = {
+                  enabled = true,
+                },
+                yapf = {
+                  enabled = true,
+                },
+                pylsp_mypy = {
+                  enabled = true,
+                  live_mode = false,
+                },
               },
             },
           },
