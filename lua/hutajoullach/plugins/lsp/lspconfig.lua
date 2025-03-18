@@ -131,6 +131,21 @@ return {
           },
         })
       end,
+      ["pyright"] = function()
+        -- configure python server
+        lspconfig["pyright"].setup({
+          capabilities = capabilities,
+          settings = {
+            python = {
+              analysis = {
+                autoSearchPaths = true,
+                diagnosticMode = "workspace",
+                useLibraryCodeForTypes = true,
+              },
+            },
+          },
+        })
+      end,
     })
   end,
 }
